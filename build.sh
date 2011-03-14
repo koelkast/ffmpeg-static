@@ -18,7 +18,7 @@ cd $BUILD_DIR
 ../fetchurl "http://www.tortall.net/projects/yasm/releases/yasm-1.0.1.tar.gz"
 ../fetchurl "http://zlib.net/zlib-1.2.5.tar.bz2"
 ../fetchurl "http://www.bzip.org/1.0.5/bzip2-1.0.5.tar.gz"
-../fetchurl "http://space.dl.sourceforge.net/project/libpng/libpng12/1.2.44/lpng1244.tar.bz2"
+../fetchurl "http://space.dl.sourceforge.net/project/libpng/libpng15/1.5.1/libpng-1.5.1.tar.bz2"
 ../fetchurl "http://downloads.xiph.org/releases/ogg/libogg-1.2.0.tar.gz"
 ../fetchurl "http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.1.tar.bz2"
 ../fetchurl "http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2"
@@ -45,9 +45,9 @@ make
 make install PREFIX=$TARGET_DIR
 
 echo "*** Building libpng ***"
-cd "$BUILD_DIR/lpng1244"
-./configure --prefix=$TARGET_DIR
-make check && make install
+cd "$BUILD_DIR/libpng-1.5.1"
+./configure --prefix=$TARGET_DIR --enable-static --disable-shared
+make -j 4 && make install
 
 # Ogg before vorbis
 echo "*** Building libogg ***"
