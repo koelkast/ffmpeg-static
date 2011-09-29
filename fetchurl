@@ -15,9 +15,9 @@ VERBOSE=${VERBOSE:-0}
 
 TARGET_DIR=${TARGET_DIR:-`pwd`}
 if [ -n "$HOME" ]; then
-  CACHE_DIR=${CACHE_DIR:-$HOME/.cache/fetchurl}
+  CACHE_DIR=${CACHE_DIR:-../cache}
 else
-  CACHE_DIR=${CACHE_DIR:-}
+  CACHE_DIR=${CACHE_DIR:-../cache}
 fi
 TMP_DIR=${TMP_DIR:-/tmp}
 
